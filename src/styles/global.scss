@@ -1,0 +1,29 @@
+@import 'mixins.scss';
+
+.side-padding {
+  @include horizontalPadding(200);
+
+  @include maxWidth(768) {
+    @include horizontalPadding(50);
+  }
+
+  @include maxWidth(600) {
+    @include horizontalPadding(20);
+  }
+
+  @include maxWidth(400) {
+    @include horizontalPadding(10);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.standart-wrap {
+  padding: 90px 200px;
+
+  @include maxWidth(400) {
+    padding: 60px 30px;
+  }
+}

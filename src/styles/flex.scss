@@ -1,0 +1,45 @@
+@import 'fontFaces.scss';
+@import 'variables.scss';
+@import 'mixins.scss';
+
+@mixin flex-column($jc: false, $ai: false, $gap: false) {
+  display: flex;
+  flex-direction: column;
+
+  @if $jc {
+    justify-content: $jc;
+
+    @if $ai {
+      align-items: $ai;
+    } @else {
+      align-items: $jc;
+    }
+
+    @if $gap != false {
+      gap: #{$gap}px;
+    }
+  }
+}
+
+@mixin flex-row($jc: false, $ai: false, $gap: false) {
+  display: flex;
+  flex-direction: row;
+
+  @if $jc {
+    justify-content: $jc;
+
+    @if $ai {
+      align-items: $ai;
+    } @else {
+      align-items: $jc;
+    }
+  }
+
+  @if $gap != false {
+    gap: #{$gap}px;
+  }
+}
+
+@mixin gap($gap) {
+  gap: #{$gap}px;
+}

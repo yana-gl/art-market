@@ -1,0 +1,80 @@
+@import 'fontFaces.scss';
+@import 'variables.scss';
+@import 'mixins.scss';
+
+%title-1 {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-size: 60px;
+  line-height: 115%;
+  text-transform: uppercase;
+
+  @include maxWidth(1200) {
+    font-size: 56px;
+  }
+
+  @include maxWidth(768) {
+    font-size: 50px;
+  }
+}
+
+.title-1-black {
+  @extend %title-1;
+  color: $black;
+}
+
+%label-1 {
+  font-family: 'montserratRegular', sans-serif;
+  font-size: 24px;
+  line-height: 115%;
+
+  @include maxWidth(1200) {
+    font-size: 22px;
+  }
+
+  @include maxWidth(768) {
+    font-size: 20px;
+  }
+}
+
+.label-1-black {
+  @extend %label-1;
+  color: $black;
+}
+
+%label-2 {
+  font-family: 'montserratBold', sans-serif;
+  font-size: 24px;
+  line-height: 115%;
+
+  @include maxWidth(1200) {
+    font-size: 20px;
+  }
+
+  @include maxWidth(768) {
+    font-size: 18px;
+  }
+}
+
+.label-2-black {
+  @extend %label-2;
+  color: $black;
+}
+
+%body-1 {
+  font-family: 'montserratRegular', sans-serif;
+  font-size: 20px;
+  line-height: 115%;
+
+  @include maxWidth(1200) {
+    font-size: 18px;
+  }
+
+  @include maxWidth(768) {
+    font-size: 16px;
+  }
+}
+
+.body-1-black {
+  @extend %body-1;
+  color: $black;
+}

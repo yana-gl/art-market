@@ -1,0 +1,26 @@
+// adaptive mixins
+@mixin maxWidth($resolution) {
+  @media screen and (max-width: #{$resolution}px) {
+    @content;
+  }
+}
+
+// vertical padding
+@mixin verticalPadding($top, $bottom: false) {
+  padding-top: #{$top}px;
+  @if $bottom {
+    padding-bottom: #{$bottom}px;
+  } @else {
+    padding-bottom: #{$top}px;
+  }
+}
+
+// horizontal padding
+@mixin horizontalPadding($left, $right: false) {
+  padding-left: #{$left}px;
+  @if $right {
+    padding-right: #{$right}px;
+  } @else {
+    padding-right: #{$left}px;
+  }
+}
