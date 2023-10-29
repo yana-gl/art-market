@@ -16,7 +16,7 @@
   &__logo {
     height: 90px;
   
-    @include maxWidth(768) {
+    @include maxWidth(992) {
       width: 60px;
       height: 60px;
     }
@@ -31,7 +31,7 @@
       @include flex-row(center, $gap: 30);
     }
 
-    @include maxWidth(768) {
+    @include maxWidth(992) {
       display: none;
     }
   }
@@ -39,7 +39,7 @@
   &__menu-icon {
     display: none;
   
-    @include maxWidth(768) {
+    @include maxWidth(992) {
       display: block;
     }
   }

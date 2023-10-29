@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import { First } from './pages/first/first';
 import classnames from 'classnames';
 
-
 function App() {
     return (
         <>
@@ -14,17 +13,10 @@ function App() {
                 )}
             >
               <Routes>
-                {/* <Header/> */}
                 <Route
                       path="/"
                       element={<First/>}
                 />
-                  {/* <Route path="/fav">
-                      <Favorites />
-                  </Route>
-                  <Route path="/profile">
-                      <Profile />
-                  </Route> */}
               </Routes>
             </div>
         </>

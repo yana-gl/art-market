@@ -18,8 +18,20 @@
   }
 
   &__table {
-    @include flex-row(space-between, start, 20);
+    @include flex-row(space-between, start, 40);
     width: 100%;
+
+    @include maxWidth(1200) {
+      gap: 20px;
+    }
+
+    @include maxWidth(1000) {
+      gap: 10px;
+    }
+
+    @include maxWidth(992) {
+      gap: 20px;
+    }
   }
 
   &__table-column {
@@ -27,13 +39,27 @@
   
     padding-top: 160px;
 
+    @include maxWidth(1200) {
+      gap: 100px;
+      padding-top: 120px;
+    }
+
     &--second {
       gap: 100px;
       padding-top: 0px;
+
+      @include maxWidth(1200) {
+        gap: 75px;
+        padding-top: 0px;
+      }
     }
 
     &--third {
-      padding-top: 70px;
+      padding-top: 80px;
+
+      @include maxWidth(1200) {
+        padding-top: 60px;
+      }
     }
   }
 

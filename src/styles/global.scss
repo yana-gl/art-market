@@ -3,7 +3,7 @@
 .side-padding {
   @include horizontalPadding(200);
 
-  @include maxWidth(768) {
+  @include maxWidth(992) {
     @include horizontalPadding(50);
   }
 

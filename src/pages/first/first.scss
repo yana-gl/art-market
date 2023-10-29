@@ -3,7 +3,7 @@
 .first {
   @include flex-column(flex-start, center);
   height: calc(100vh - 90px);
-  @include maxWidth(768) {
+  @include maxWidth(992) {
     height: calc(100vh - 60px);
   }
   background-color: $white;

@@ -1,6 +1,6 @@
 import './header.scss';
 import clsx from 'classnames';
-import { ReactComponent as Logo } from '../../assets/img/logo.svg';
+import { ReactComponent as Logo } from '../../assets/img/svg/logo.svg';
 import { ReactComponent as MenuIcon } from '../../assets/img/svg/menu-icon.svg';
 
 export function Header() {

@@ -12,7 +12,7 @@
     font-size: 56px;
   }
 
-  @include maxWidth(768) {
+  @include maxWidth(992) {
     font-size: 50px;
   }
 }
@@ -31,7 +31,7 @@
     font-size: 22px;
   }
 
-  @include maxWidth(768) {
+  @include maxWidth(992) {
     font-size: 20px;
   }
 }
@@ -47,11 +47,11 @@
   line-height: 115%;
 
   @include maxWidth(1200) {
-    font-size: 20px;
+    font-size: 18px;
   }
 
-  @include maxWidth(768) {
-    font-size: 18px;
+  @include maxWidth(992) {
+    font-size: 16px;
   }
 }
 
@@ -69,7 +69,7 @@
     font-size: 18px;
   }
 
-  @include maxWidth(768) {
+  @include maxWidth(992) {
     font-size: 16px;
   }
 }

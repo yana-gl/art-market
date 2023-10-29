@@ -2,7 +2,7 @@ import './artists.scss';
 import clsx from 'classnames';
 import { useEffect, useState } from 'react';
 import { Product } from '../../pages/first/first';
-import { testData } from '../../pages/first/testData';
+import { testData } from '../../assets/data/testData';
 import { Card } from '../card/card';
 import { ArtistDescription } from '../artistCardDescription/artistCardDescription';
 
@@ -12,7 +12,7 @@ export function Artists() {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 1200) {
+            if (window.innerWidth >= 992) {
                 setColumnsNumber(3);
                 setItems([
                     [testData[0], testData[1], testData[2]],
@@ -20,7 +20,7 @@ export function Artists() {
                     [testData[6], testData[7], testData[8]],
                 ]);
             }
-            else if (window.innerWidth < 1200) {
+            else if (window.innerWidth < 992) {
                 setColumnsNumber(2);
                 setItems([
                     [testData[0], testData[1], testData[2], testData[3]],
