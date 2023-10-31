@@ -26,6 +26,30 @@
   color: $black;
 }
 
+%title-2 {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-size: 40px;
+  line-height: 115%;
+  text-transform: uppercase;
+
+  @include maxWidth(1200) {
+    font-size: 32px;
+  }
+
+  @include maxWidth(992) {
+    font-size: 28px;
+  }
+
+  @include maxWidth(480) {
+    font-size: 26px;
+  }
+}
+
+.title-2-black {
+  @extend %title-2;
+  color: $black;
+}
+
 %label-1 {
   font-family: 'montserratRegular', sans-serif;
   font-size: 24px;

@@ -29,22 +29,28 @@ export function Wrapper({ children }: WrapperProps) {
 
 export function Menu() {
     return (
-        <div className={clsx('menu', 'label-1-black')}>
-             <Link
-                to={'/'}
-            >
-                О НАС
-            </Link>
-            <Link
-                to={'/artists'}
-            >
-                ХУДОЖНИКИ
-            </Link>
-            <Link
-                to={'/products'}
-            >
-                ТОВАРЫ
-            </Link>
+        <div className={clsx('menu', 'title-2-black')}>
+            <div>
+                <Link
+                    to={'/'}
+                >
+                    О НАС
+                </Link>
+            </div>
+            <div>
+                <Link
+                    to={'/artists'}
+                >
+                    ХУДОЖНИКИ
+                </Link>
+            </div>
+            <div>
+                <Link
+                    to={'/products'}
+                >
+                    ТОВАРЫ
+                </Link>
+            </div>
         </div>
     )
 }

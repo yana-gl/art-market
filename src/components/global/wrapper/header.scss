@@ -5,13 +5,13 @@
 }
 
 .menu {
-  @include flex-column(flex-start, end, 10);
+  @include flex-column(flex-start, end, 20);
 
-  padding: 10px;
+  padding: 20px;
   position: absolute;
-  z-index: 5;
-  height: 50px;
+  z-index: 50;
   top: 65px;
   right: 0;
   text-transform: uppercase;
+  background-color: $white;
 }
