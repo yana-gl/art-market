@@ -5,6 +5,8 @@ import { artistsTestData } from '../../assets/data/testData';
 import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
 import { Link } from 'react-router-dom';
+// TODO: FIX SCROLL
+// import { useHorizontalScroll } from './scrollHook';
 
 export type Artist = {
     id: string;
@@ -14,6 +16,7 @@ export type Artist = {
 
 export function ArtistsSlider() {
     const [ items, setItems ] = useState<Artist[]>([]);
+    // const scrollRef = useHorizontalScroll();
 
     useEffect(() => {
         setItems([
@@ -33,7 +36,10 @@ export function ArtistsSlider() {
             >
                 ХУДОЖНИКИ
             </h2>
-            <div className='artists-slider__slider'>
+            <div
+                className='artists-slider__slider'
+                // ref={scrollRef}
+            >
                 {
                     items.map((it, index) => <div
                         className={clsx(

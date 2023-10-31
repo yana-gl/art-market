@@ -1,0 +1,17 @@
+@import '../../../styles/common.scss';
+
+.wrapper {
+  position: relative;
+}
+
+.menu {
+  @include flex-column(flex-start, end, 10);
+
+  padding: 10px;
+  position: absolute;
+  z-index: 5;
+  height: 50px;
+  top: 65px;
+  right: 0;
+  text-transform: uppercase;
+}

@@ -1,11 +1,10 @@
-import { Header } from '../../components/global/header/header';
 import { Artists } from '../../components/artists/artists';
+import { Wrapper } from '../../components/global/wrapper/wrapper';
 
 export function ArtistsPage() {
     return (
-        <>
-            <Header/>
+        <Wrapper>
             <Artists/>
-        </>
+        </Wrapper>
     )
 }

@@ -1,7 +1,7 @@
 import './first.scss';
-import { Header } from '../../components/global/header/header';
-import { Products } from '../../components/products/products';
+import { ProductsMini } from '../../components/products/products';
 import { ArtistsSlider } from '../../components/artistsSlider/artistsSlider';
+import { Wrapper } from '../../components/global/wrapper/wrapper';
 
 export type Product = {
     id: string;
@@ -12,10 +12,9 @@ export type Product = {
 
 export function First() {
     return (
-        <>
-            <Header/>
+        <Wrapper>
             <ArtistsSlider/>
-            <Products/>
-        </>
+            <ProductsMini/>
+        </Wrapper>
     )
 }

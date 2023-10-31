@@ -2,9 +2,15 @@ import './header.scss';
 import clsx from 'classnames';
 import { ReactComponent as Logo } from '../../../assets/img/svg/logo.svg';
 import { ReactComponent as MenuIcon } from '../../../assets/img/svg/menu-icon.svg';
+import { ReactComponent as Cancel } from '../../../assets/img/svg/cancel.svg';
 import { Link } from 'react-router-dom';
 
-export function Header() {
+interface HeaderProps {
+    onBurgerClick?: () => void;
+    showBurger?: boolean;
+}
+
+export function Header({ onBurgerClick, showBurger }: HeaderProps) {
     return (
         <>
             <div
@@ -38,9 +44,16 @@ export function Header() {
                         ТОВАРЫ
                     </Link>
                 </div>
-                <MenuIcon
-                    className={'header__menu-icon'}
-                />
+                {
+                    showBurger
+                        ? <Cancel
+                            onClick={onBurgerClick}
+                        />
+                        : <MenuIcon
+                            onClick={onBurgerClick}
+                            className={'header__menu-icon'}
+                        />
+                }
             </div>
         </>
     )

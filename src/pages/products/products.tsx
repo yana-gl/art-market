@@ -1,11 +1,10 @@
-import { Header } from '../../components/global/header/header';
+import { Wrapper } from '../../components/global/wrapper/wrapper';
 import { Products } from '../../components/products/products';
 
 export function ProductsPage() {
     return (
-        <>
-            <Header/>
+        <Wrapper>
             <Products/>
-        </>
+        </Wrapper>
     )
 }
