@@ -1,4 +1,4 @@
-@import '../../styles/common.scss';
+@import '../../../styles/common.scss';
 
 .card {
   @include flex-column(flex-start, flex-start, 30);

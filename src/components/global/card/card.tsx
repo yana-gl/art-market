@@ -1,7 +1,7 @@
 import './card.scss';
 import clsx from 'classnames';
 import { ReactNode } from 'react';
-import frame from '../../assets/img/png/frame.png';
+import frame from '../../../assets/img/png/frame.png';
 
 export interface CardProps {
     item: {

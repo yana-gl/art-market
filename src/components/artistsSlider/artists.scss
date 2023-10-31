@@ -1,7 +1,7 @@
 @import '../../styles/common.scss';
 
-.artists {
-  @include flex-column(flex-start, center, 40);
+.artists-slider {
+  @include flex-column(start, $gap: 40);
   @include verticalPadding(40);
   @include horizontalPadding(60);
 
@@ -30,10 +30,12 @@
     width: 100%;
   }
 
-  &__table {
-    @include flex-row(space-between, start, 40);
+  &__slider {
+    @include flex-row(start, start, 40);
 
     width: 100%;
+    overflow: auto;
+    padding-bottom: 25px;
 
     @include maxWidth(1200) {
       gap: 20px;
@@ -52,40 +54,50 @@
     }
   }
 
-  &__table-column {
-    @include flex-column(flex-start, center, 150);
-  
-    padding-top: 160px;
+  button {
+    margin: 20px;
+    margin-top: 150px;
+  }
 
-    @include maxWidth(1200) {
-      gap: 100px;
-      padding-top: 120px;
-    }
+  &__card {
+    max-width: 350px;
+    min-width: 350px;
+    height: 100%;
 
     @include maxWidth(600) {
-      gap: 60px;
-      padding-top: 90px;
+      max-width: 250px;
+      min-width: 250px;
     }
 
-    &--second {
-      gap: 100px;
-      padding-top: 0px;
-
-      @include maxWidth(1200) {
-        gap: 75px;
-        padding-top: 0px;
-      }
+    &--0 {
+      padding-top: 60px;
 
       @include maxWidth(600) {
-        gap: 45px;
+        padding-top: 30px;
       }
     }
 
-    &--third {
-      padding-top: 80px;
+    &--1 {
+      padding-top: 120px;
 
-      @include maxWidth(1200) {
+      @include maxWidth(600) {
         padding-top: 60px;
+      }
+    }
+
+    &--3 {
+      padding-top: 180px;
+
+      @include maxWidth(600) {
+        padding-top: 90px;
+      }
+    }
+
+    &--4 {
+      padding-top: 15px;
+
+      @include maxWidth(600) {
+        padding-top: 30px;
       }
     }
   }

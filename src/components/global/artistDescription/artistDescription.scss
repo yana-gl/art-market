@@ -1,0 +1,7 @@
+@import '../../../styles/common.scss';
+
+.artist-description {
+  @include flex-column(center, center, 8);
+
+  text-align: center;
+}

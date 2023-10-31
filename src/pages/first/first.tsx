@@ -1,6 +1,7 @@
 import './first.scss';
-import { Header } from '../../components/header/header';
-import { Artists } from '../../components/artists/artists';
+import { Header } from '../../components/global/header/header';
+import { Products } from '../../components/products/products';
+import { ArtistsSlider } from '../../components/artistsSlider/artistsSlider';
 
 export type Product = {
     id: string;
@@ -13,7 +14,8 @@ export function First() {
     return (
         <>
             <Header/>
-            <Artists/>
+            <ArtistsSlider/>
+            <Products/>
         </>
     )
 }

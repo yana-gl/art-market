@@ -1,35 +1,30 @@
-import './artists.scss';
+import './products.scss';
 import clsx from 'classnames';
 import { useEffect, useState } from 'react';
-import { artistsTestData } from '../../assets/data/testData';
+import { Product } from '../../pages/first/first';
+import { productsTestData } from '../../assets/data/testData';
 import { Card } from '../global/card/card';
-import { ArtistDescription } from '../global/artistDescription/artistDescription';
+import { ProductDescription } from '../global/productDescription/productDescription';
 
-export type Artist = {
-    id: string;
-    name: string;
-    products: string;
-}
-
-export function Artists() {
+export function Products() {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();
-    const [ items, setItems ] = useState<Artist[][]>([]);
+    const [ items, setItems ] = useState<Product[][]>([]);
 
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth >= 992) {
                 setColumnsNumber(3);
                 setItems([
-                    [artistsTestData[0], artistsTestData[1]],
-                    [artistsTestData[2], artistsTestData[3]],
-                    [artistsTestData[4], artistsTestData[5]],
+                    [productsTestData[0], productsTestData[1], productsTestData[2]],
+                    [productsTestData[3], productsTestData[4], productsTestData[5]],
+                    [productsTestData[6], productsTestData[7], productsTestData[8]],
                 ]);
             }
             else if (window.innerWidth < 992) {
                 setColumnsNumber(2);
                 setItems([
-                    [artistsTestData[0], artistsTestData[1], artistsTestData[2]],
-                    [artistsTestData[3], artistsTestData[4], artistsTestData[5]]
+                    [productsTestData[0], productsTestData[1], productsTestData[2], productsTestData[3]],
+                    [productsTestData[4], productsTestData[5], productsTestData[6], productsTestData[7], productsTestData[8]]
                 ]);
             }
         };
@@ -39,24 +34,24 @@ export function Artists() {
     }, [columnsNumber]);
 
     return (
-        <div className={'artists'}>
+        <div className={'products'}>
             <h2
                 className={clsx(
                     'title-1-black',
-                    'artists__title'
+                    'products__title'
                 )}
             >
-                ХУДОЖНИКИ
+                ТОВАРЫ
             </h2>
-            <div className='artists__table'>
+            <div className='products__table'>
                 {
                     items.map((array, index) => {
                         return (
                             <div
                                 className={clsx(
-                                    'artists__table-column',
-                                    index === 1 && 'artists__table-column--second',
-                                    index === 2 && 'artists__table-column--third',
+                                    'products__table-column',
+                                    index === 1 && 'products__table-column--second',
+                                    index === 2 && 'products__table-column--third',
                                 )}
                                 key={index}
                             >
@@ -65,9 +60,7 @@ export function Artists() {
                                         item={it}
                                         key={it.id}
                                     >
-                                        <ArtistDescription
-                                            item={it}
-                                        />
+                                        <ProductDescription item={it}/>
                                     </Card>))
                                 }
                             </div>

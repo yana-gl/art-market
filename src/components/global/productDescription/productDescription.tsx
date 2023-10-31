@@ -1,7 +1,7 @@
-import './artistCardDescription.scss';
+import './productDescription.scss';
 import clsx from 'classnames';
 
-export interface CardProps {
+export interface ProductDescriptionProps {
     item: {
         name: string;
         author: string;
@@ -9,17 +9,15 @@ export interface CardProps {
     },
 }
 
-export function ArtistDescription({ item }: CardProps) {
+export function ProductDescription({ item }: ProductDescriptionProps) {
     return (
         <div
-            className={clsx('artist-description', 'body-1-black')}
+            className={clsx('description', 'body-1-black')}
         >
             <div
-                className={'artist-description__container'}
+                className={'description__container'}
             >
-                <span
-                    className={clsx('label-2-black')}
-                >
+                <span className={clsx('label-2-black')}>
                     {item.name}
                 </span>
                 <span>
@@ -27,7 +25,7 @@ export function ArtistDescription({ item }: CardProps) {
                 </span>
             </div>
             <span
-                className={clsx('artist-description__price')}
+                className={clsx('description__price')}
             >
                 {item.price} ₽
             </span>

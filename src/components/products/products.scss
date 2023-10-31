@@ -1,6 +1,6 @@
 @import '../../styles/common.scss';
 
-.artists {
+.products {
   @include flex-column(flex-start, center, 40);
   @include verticalPadding(40);
   @include horizontalPadding(60);
