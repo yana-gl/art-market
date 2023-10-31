@@ -9,7 +9,15 @@
   @include flex-row(space-between, center);
   @include horizontalPadding(60);
 
-  @include maxWidth(400) {
+  @include maxWidth(1200) {
+    @include horizontalPadding(30);
+  }
+
+  @include maxWidth(992) {
+    @include horizontalPadding(40);
+  }
+
+  @include maxWidth(600) {
     @include horizontalPadding(15);
   }
 

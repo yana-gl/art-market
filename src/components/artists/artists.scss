@@ -7,10 +7,22 @@
 
   background-color: $white;
 
+  @include maxWidth(1200) {
+    @include horizontalPadding(30);
+  }
+
+  @include maxWidth(992) {
+    @include horizontalPadding(40);
+  }
+
   @include maxWidth(600) {
     @include verticalPadding(30);
     @include horizontalPadding(15);
     @include flex-column(flex-start, center, 30);
+  }
+
+  @include maxWidth(480) {
+    gap: 15px;
   }
 
   &__title {
@@ -32,6 +44,10 @@
     @include maxWidth(992) {
       gap: 20px;
     }
+
+    @include maxWidth(480) {
+      gap: 15px;
+    }
   }
 
   &__table-column {
@@ -44,6 +60,11 @@
       padding-top: 120px;
     }
 
+    @include maxWidth(600) {
+      gap: 60px;
+      padding-top: 90px;
+    }
+
     &--second {
       gap: 100px;
       padding-top: 0px;
@@ -51,6 +72,10 @@
       @include maxWidth(1200) {
         gap: 75px;
         padding-top: 0px;
+      }
+
+      @include maxWidth(600) {
+        gap: 45px;
       }
     }
 

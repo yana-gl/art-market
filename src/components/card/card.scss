@@ -5,15 +5,18 @@
 
   position: relative;
 
-  @include maxWidth(600) {
-    @include flex-column(flex-start, flex-start, 20);
-    padding: 15px;
+  @include maxWidth(992) {
+    gap: 15px;
+  }
+
+  &__container {
+    position: relative;
   }
 
   &__img {
     border: 1px solid white;
     // проверить, что оно обрезает, а не растягивает
-    // aspect-ratio: 1/1;
+    aspect-ratio: 1/1;
   }
 
   &__frame {
@@ -27,5 +30,9 @@
     @include horizontalPadding(20);
 
     width: 100%;
+
+    @include maxWidth(768) {
+      @include horizontalPadding(0);
+    }
   }
 }
