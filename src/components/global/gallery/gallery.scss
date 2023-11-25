@@ -1,0 +1,133 @@
+.controller {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &--left {
+    left: 0;
+    padding-left: 10px;
+  }
+
+  &--right {
+    right: 0;
+    padding-right: 10px;
+  }
+
+  &__arrow {
+    cursor: pointer;
+  }
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 60%;
+
+  &__el {
+    height: 5px;
+    width: 100%;
+
+    &--white {
+      background-color: white;
+    }
+
+    &--blue {
+      background-color: rgb(60, 97, 167);
+    }
+  }
+}
+
+.close {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+
+.close-text {
+  color: white;
+
+  &__link {
+    color: rgb(60, 97, 167);
+    cursor: pointer;
+  }
+}
+
+.layout {
+  display: flex;
+  gap: 10px 10px;
+  flex-wrap: wrap;
+
+  .gallery__image {
+    width: 100%;
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+  
+    @media (max-width: 600px) {
+      object-fit: contain;
+      aspect-ratio: auto;
+    }
+  }
+}
+
+.counter {
+  color: white;
+}
+
+.img-view {
+  padding-bottom: 20px;
+}
+
+.slide {
+  padding: 0 100px;
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  align-items: center;
+  margin-top: 20px;
+
+  &__arrow {
+    fill: white;
+    cursor: pointer;
+  
+    &--right {
+      transform: rotate(180deg);
+    }
+  
+    &--disabled {
+      opacity: 40%;
+      cursor: auto;
+    }
+  }
+}
+
+.gallery-with-absolute-controls {
+  .img-view {
+    padding: 20px 0;
+  }
+}

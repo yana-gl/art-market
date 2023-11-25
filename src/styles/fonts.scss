@@ -74,6 +74,11 @@
   color: $black;
 }
 
+.label-1-grey {
+  @extend %label-1;
+  color: $grey;
+}
+
 %label-2 {
   font-family: 'montserratBold', sans-serif;
   font-size: 24px;
@@ -98,6 +103,11 @@
   color: $black;
 }
 
+.label-2-grey {
+  @extend %label-2;
+  color: $grey;
+}
+
 %body-1 {
   font-family: 'montserratRegular', sans-serif;
   font-size: 20px;
@@ -120,4 +130,34 @@
 .body-1-black {
   @extend %body-1;
   color: $black;
+}
+
+.body-1-grey {
+  @extend %body-1;
+  color: $grey;
+}
+
+%caption-1 {
+  font-family: 'montserratRegular', sans-serif;
+  font-size: 14px;
+  line-height: 115%;
+
+  @include maxWidth(1200) {
+    font-size: 12px;
+  }
+
+  @include maxWidth(480) {
+    font-size: 10px;
+    line-height: 90%;
+  }
+}
+
+.caption-1-black {
+  @extend %caption-1;
+  color: $black;
+}
+
+.caption-1-grey {
+  @extend %caption-1;
+  color: $grey;
 }

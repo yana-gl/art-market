@@ -57,12 +57,16 @@ export function ProductsMini() {
                                 key={index}
                             >
                                 {
-                                    array.map(it => <Card
-                                        item={it}
+                                    array.map(it => <Link
                                         key={it.id}
+                                        to={'/product'}
                                     >
-                                        <ProductDescription item={it}/>
-                                    </Card>)
+                                        <Card
+                                            item={it}
+                                        >
+                                            <ProductDescription item={it}/>
+                                        </Card>
+                                    </Link>)
                                 }
                             </div>
                         )

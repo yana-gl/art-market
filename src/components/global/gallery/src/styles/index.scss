@@ -1,0 +1,23 @@
+// mixins
+@mixin column-flex($gap:0) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin column-flex-ctr($gap:0) {
+  @include column-flex($gap);
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin row-flex($gap:0) {
+  display: flex;
+  gap: $gap;
+}
+
+@mixin row-flex-ctr($gap:0) {
+  @include row-flex($gap);
+  align-items: center;
+  justify-content: center;
+}
