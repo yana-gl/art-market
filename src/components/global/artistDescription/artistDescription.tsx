@@ -4,7 +4,7 @@ import clsx from 'classnames';
 export interface ArtistDescriptionProps {
     item: {
         name: string;
-        products: string;
+        shortDescription: string;
     },
 }
 
@@ -17,7 +17,7 @@ export function ArtistDescription({ item }: ArtistDescriptionProps) {
                 {item.name}
             </span>
             <span>
-                {item.products}
+                {item.shortDescription}
             </span>
         </div>
     )

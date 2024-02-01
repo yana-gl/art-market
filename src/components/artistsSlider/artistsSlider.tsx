@@ -5,13 +5,14 @@ import { artistsTestData } from '../../assets/data/testData';
 import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
 import { Link } from 'react-router-dom';
+import { getArtists } from '../../api/productActions';
 // TODO: FIX SCROLL
 // import { useHorizontalScroll } from './scrollHook';
 
 export type Artist = {
     id: string;
     name: string;
-    products: string;
+    shortDescription: string;
 }
 
 export function ArtistsSlider() {
@@ -19,6 +20,8 @@ export function ArtistsSlider() {
     // const scrollRef = useHorizontalScroll();
 
     useEffect(() => {
+        getArtists();
+        console.log('pew pew');
         setItems([
             artistsTestData[0], artistsTestData[1],
             artistsTestData[2], artistsTestData[3],
@@ -42,6 +45,7 @@ export function ArtistsSlider() {
             >
                 {
                     items.map((it, index) => <div
+                        key={index}
                         className={clsx(
                             'artists-slider__card',
                             `artists-slider__card--${index}`
@@ -61,7 +65,7 @@ export function ArtistsSlider() {
                     to={'/artists'}
                 >
                     <button
-                        className={clsx('label-2-black')}
+                        className={clsx('label-2-white')}
                     >
                         Посмотреть всех
                     </button>

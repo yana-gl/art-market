@@ -77,7 +77,7 @@ export function ProductsMini() {
                 to={'/products'}
             >
                 <button
-                    className={clsx('label-2-black')}
+                    className={clsx('label-2-white')}
                 >
                     Посмотреть всех
                 </button>

@@ -11,8 +11,6 @@ export function ProductCard() {
     const item =  productsTestData[0];
     const itemImages: Image[] = [
         {id: '1', src: `../products/${1}.jpeg`}, {id: '2', src: `../products/${2}.jpeg`}, {id: '3', src: `../products/${3}.jpeg`}, {id: '4', src: `../products/${4}.jpeg`},
-        {id: '5', src: `../products/${5}.jpeg`}, {id: '6', src: `../products/${6}.jpeg`}, {id: '7', src: `../products/${7}.jpeg`}, {id: '8', src: `../products/${8}.jpeg`},
-        {id: '9', src: `../products/${9}.jpeg`}, {id: '10', src: `../products/${10}.jpeg`}, {id: '11', src: `../products/${11}.jpeg`}, {id: '12', src: `../products/${12}.jpeg`},
     ];
     const [ mainImgId, setMainImgId ] = useState<string>('1');
     const [ viewIndex, setViewIndex ] = useState<number>(-1);
@@ -86,7 +84,7 @@ export function ProductCard() {
                             {item.description}
                         </span>
                         <button
-                            className={clsx('label-2-black')}
+                            className={clsx('label-2-white')}
                         >
                             Написать продавцу
                         </button>

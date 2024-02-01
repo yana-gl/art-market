@@ -23,6 +23,7 @@
 
   &__logo {
     height: 90px;
+    width: auto;
   
     @include maxWidth(992) {
       width: 60px;

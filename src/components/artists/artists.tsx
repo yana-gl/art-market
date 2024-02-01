@@ -8,7 +8,7 @@ import { ArtistDescription } from '../global/artistDescription/artistDescription
 export type Artist = {
     id: string;
     name: string;
-    products: string;
+    shortDescription: string;
 }
 
 export function Artists() {

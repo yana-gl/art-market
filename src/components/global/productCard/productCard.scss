@@ -4,8 +4,6 @@
   @include flex-row(flex-start, start, 40);
   @include verticalPadding(40);
   @include horizontalPadding(60);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
 
   @include maxWidth(1200) {
     @include horizontalPadding(30);
@@ -18,10 +16,20 @@
   @include maxWidth(600) {
     @include verticalPadding(30);
     @include horizontalPadding(15);
+    @include flex-column(flex-start, start, 30);
   }
 
   &__right-side {
     @include flex-column(start, end, $gap: 90);
+    width: 100%;
+
+    @include maxWidth(992) {
+      @include flex-column(start, end, $gap: 50);
+    }
+
+    @include maxWidth(600) {
+      @include flex-column(start, end, $gap: 30);
+    }
   }
 
   &__info {
@@ -31,6 +39,25 @@
 
   &__images {
     @include flex-column(flex-start, start, 20);
+
+    max-width: 500px;
+
+    .layout {
+      gap: 5px;
+    }
+
+    .layout .gallery__image {
+      max-width: 50px;
+      max-height: 50px;
+    }
+
+    @include maxWidth(992) {
+      max-width: 300px;
+    }
+
+    @include maxWidth(600) {
+      max-width: 100%;
+    }
   }
 
   &__img {
