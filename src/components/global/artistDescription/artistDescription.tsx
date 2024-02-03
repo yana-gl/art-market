@@ -1,11 +1,9 @@
+import { Artist } from '../../../api/product-service/dto/artist';
 import './artistDescription.scss';
 import clsx from 'classnames';
 
 export interface ArtistDescriptionProps {
-    item: {
-        name: string;
-        shortDescription: string;
-    },
+    item: Artist,
 }
 
 export function ArtistDescription({ item }: ArtistDescriptionProps) {

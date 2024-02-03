@@ -1,12 +1,9 @@
+import { Product } from '../../../api/product-service/dto/product';
 import './productDescription.scss';
 import clsx from 'classnames';
 
 export interface ProductDescriptionProps {
-    item: {
-        name: string;
-        author: string;
-        price: number;
-    },
+    item: Product,
 }
 
 export function ProductDescription({ item }: ProductDescriptionProps) {
@@ -21,7 +18,7 @@ export function ProductDescription({ item }: ProductDescriptionProps) {
                     {item.name}
                 </span>
                 <span>
-                    {item.author}
+                    {item.author.name}
                 </span>
             </div>
             <span

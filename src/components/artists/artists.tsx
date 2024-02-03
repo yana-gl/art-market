@@ -4,11 +4,18 @@ import { useEffect, useState } from 'react';
 import { artistsTestData } from '../../assets/data/testData';
 import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
-import { Artist } from '../../type/artist';
+import { Artist } from '../../api/product-service/dto/artist';
 
 export function Artists() {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();
     const [ items, setItems ] = useState<Artist[][]>([]);
+    // const [ artistsTestData, setArtistsTestData ] = useState<Artist[]>([]);
+
+    // useEffect(() => {
+    //     getArtists().then(artists => {
+    //         setArtistsTestData(artists);
+    //     });
+    // }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -49,7 +56,7 @@ export function Artists() {
         handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, [columnsNumber]);
+    }, [columnsNumber, artistsTestData]);
 
     return (
         <div className={'artists'}>
@@ -75,6 +82,7 @@ export function Artists() {
                             >
                                 {
                                     array.map(it => (<Card
+                                        isArtist={true}
                                         item={it}
                                         key={it.id}
                                     >

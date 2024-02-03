@@ -67,10 +67,10 @@ export function ProductCard() {
                                     {item.name}
                                 </div>
                                 <Link
-                                    to={`/artists/${item.author}`}
+                                    to={`/artists/${item.author.id}`}
                                     className={clsx('caption-1-grey', 'product-card__author')}
                                 >
-                                    Автор: {item.author}
+                                    Автор: {item.author.name}
                                 </Link>
                             </div>
                             <div

@@ -7,5 +7,5 @@ export type Product = {
     author: Artist;
     price: number;
     category: SimpleObjectInterface;
-    description: string;
+    description?: string;
 };

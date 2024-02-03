@@ -5,6 +5,8 @@ import { ArtistsPage } from './pages/artists/artists';
 import { ProductsPage } from './pages/products/products';
 import { ArtistCard } from './pages/artistCard/artistCard';
 import { ProductCard } from './pages/productCard/productCard';
+import { Suspense } from 'react';
+import { ScrollToTop } from './components/global/scrollToTop/scrollToTop';
 
 function App() {
     return (
@@ -15,28 +17,32 @@ function App() {
                     'clear',
                 )}
             >
-                <Routes>
-                    <Route
-                        path="/"
-                        element={<First/>}
-                    />
-                    <Route
-                        path="/artists"
-                        element={<ArtistsPage/>}
-                    />
-                    <Route
-                        path="/products"
-                        element={<ProductsPage/>}
-                    />
-                    <Route
-                        path="/products/:id"
-                        element={<ProductCard/>}
-                    />
-                    <Route
-                        path="/artists/:id"
-                        element={<ArtistCard/>}
-                    />
-                </Routes>
+                <ScrollToTop/>
+                <Suspense fallback={<>...</>}>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={<First/>}
+                        />
+                        <Route
+                            path="/artists"
+                            element={<ArtistsPage/>}
+                        />
+                        <Route
+                            path="/products"
+                            element={<ProductsPage/>}
+                        />
+                        <Route
+                            path="/products/:id"
+                            element={<ProductCard/>}
+                        />
+                        <Route
+                            path="/artists/:id"
+                            element={<ArtistCard/>}
+                        />
+                    </Routes>
+                </Suspense>
+                
             </div>
         </>
     );

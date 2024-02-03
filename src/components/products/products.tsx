@@ -1,11 +1,11 @@
 import './products.scss';
 import clsx from 'classnames';
 import { useEffect, useState } from 'react';
-import { Product } from '../../pages/first/first';
 import { productsTestData } from '../../assets/data/testData';
 import { Card } from '../global/card/card';
 import { ProductDescription } from '../global/productDescription/productDescription';
 import { Link } from 'react-router-dom';
+import { Product } from '../../api/product-service/dto/product';
 
 export function ProductsMini({hasTitle=true}: {hasTitle?: boolean}) {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();
@@ -78,16 +78,12 @@ export function ProductsMini({hasTitle=true}: {hasTitle?: boolean}) {
                                 key={index}
                             >
                                 {
-                                    array.map(it => <Link
+                                    array.map(it => <Card
+                                        item={it}
                                         key={it.id}
-                                        to={'/product'}
                                     >
-                                        <Card
-                                            item={it}
-                                        >
-                                            <ProductDescription item={it}/>
-                                        </Card>
-                                    </Link>)
+                                        <ProductDescription item={it}/>
+                                    </Card>)
                                 }
                             </div>
                         )

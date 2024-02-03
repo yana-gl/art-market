@@ -6,7 +6,7 @@ import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
 import { Link } from 'react-router-dom';
 import { getArtists } from '../../api/product-service/productActions';
-import { Artist } from '../../type/artist';
+import { Artist } from '../../api/product-service/dto/artist';
 // TODO: FIX SCROLL
 // import { useHorizontalScroll } from './scrollHook';
 
@@ -47,6 +47,7 @@ export function ArtistsSlider() {
                     )}
                     >
                         <Card
+                            isArtist={true}
                             item={it}
                             key={it.id}
                         >

@@ -9,12 +9,13 @@ export interface CardProps {
         id: string;
     },
     children: ReactNode;
+    isArtist?: boolean;
 }
 
-export function Card({ item, children }: CardProps) {
+export function Card({ item, children, isArtist=false }: CardProps) {
     return (
         <Link
-            to={`/products/{id}`}
+            to={`/${isArtist ? 'artists' : 'products'}/${item.id}`}
         >
             <div
                 className={'card'}
