@@ -1,5 +1,8 @@
 @import '../../styles/common.scss';
 
+// стили как в products
+// todo: объединить
+
 .artists {
   @include flex-column(flex-start, center, 40);
   @include verticalPadding(40);
@@ -19,11 +22,11 @@
     @include verticalPadding(30);
     @include horizontalPadding(15);
 
-    gap: 30px;    
+    @include flex-column(flex-start, center, 30);
   }
 
   @include maxWidth(480) {
-    gap: 15px;
+    @include flex-column(flex-start, center, 15);
   }
 
   &__title {
@@ -36,19 +39,19 @@
     width: 100%;
 
     @include maxWidth(1200) {
-      gap: 20px;
+      @include flex-row(space-between, start, 20);
     }
 
     @include maxWidth(1000) {
-      gap: 10px;
+      @include flex-row(space-between, start, 10);
     }
 
     @include maxWidth(992) {
-      gap: 20px;
+      @include flex-row(space-between, start, 20);
     }
 
     @include maxWidth(480) {
-      gap: 15px;
+      @include flex-row(space-between, start, 15);
     }
   }
 
@@ -58,12 +61,14 @@
     padding-top: 160px;
 
     @include maxWidth(1200) {
-      gap: 100px;
+      @include flex-column(flex-start, center, 100);
+
       padding-top: 120px;
     }
 
     @include maxWidth(600) {
-      gap: 60px;
+      @include flex-column(flex-start, center, 60);
+
       padding-top: 90px;
     }
 

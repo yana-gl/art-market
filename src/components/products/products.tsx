@@ -7,26 +7,44 @@ import { Card } from '../global/card/card';
 import { ProductDescription } from '../global/productDescription/productDescription';
 import { Link } from 'react-router-dom';
 
-export function ProductsMini() {
+export function ProductsMini({hasTitle=true}: {hasTitle?: boolean}) {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();
     const [ items, setItems ] = useState<Product[][]>([]);
 
     useEffect(() => {
         const handleResize = () => {
+            // делим по 3 столбца
             if (window.innerWidth >= 992) {
+                const column1: Product[] = [];
+                const column2: Product[] = [];
+                const column3: Product[] = [];
+                productsTestData.map((it, index) => {
+                    if (index % 3 === 0) {
+                        column1.push(it);
+                    }
+                    if (index % 3 === 1) {
+                        column2.push(it);
+                    }
+                    if (index % 3 === 2) {
+                        column3.push(it);
+                    }
+                });
                 setColumnsNumber(3);
-                setItems([
-                    [productsTestData[0], productsTestData[1]],
-                    [productsTestData[2], productsTestData[3]],
-                    [productsTestData[4], productsTestData[5]],
-                ]);
+                setItems([ column1, column2, column3 ]);
             }
             else if (window.innerWidth < 992) {
                 setColumnsNumber(2);
-                setItems([
-                    [productsTestData[0], productsTestData[1], productsTestData[2]],
-                    [productsTestData[3], productsTestData[4], productsTestData[5]]
-                ]);
+                const column1: Product[] = [];
+                const column2: Product[] = [];
+                productsTestData.map((it, index) => {
+                    if (index % 3 === 0) {
+                        column1.push(it);
+                    }
+                    if (index % 3 === 1) {
+                        column2.push(it);
+                    }
+                });
+                setItems([ column1, column2 ]);
             }
         };
         handleResize();
@@ -36,14 +54,17 @@ export function ProductsMini() {
 
     return (
         <div className={'products'}>
-            <h2
-                className={clsx(
-                    'title-1-black',
-                    'products__title'
-                )}
-            >
-                ТОВАРЫ
-            </h2>
+            {
+                hasTitle &&
+                <h2
+                    className={clsx(
+                        'title-1-black',
+                        'products__title'
+                    )}
+                >
+                    ТОВАРЫ
+                </h2>
+            }
             <div className='products__table'>
                 {
                     items.map((array, index) => {
@@ -77,7 +98,7 @@ export function ProductsMini() {
                 to={'/products'}
             >
                 <button
-                    className={clsx('label-2-white')}
+                    className={clsx('body-1-white')}
                 >
                     Посмотреть всех
                 </button>
@@ -92,20 +113,38 @@ export function Products() {
 
     useEffect(() => {
         const handleResize = () => {
+            // делим по 3 столбца
             if (window.innerWidth >= 992) {
+                const column1: Product[] = [];
+                const column2: Product[] = [];
+                const column3: Product[] = [];
+                productsTestData.map((it, index) => {
+                    if (index % 3 === 0) {
+                        column1.push(it);
+                    }
+                    if (index % 3 === 1) {
+                        column2.push(it);
+                    }
+                    if (index % 3 === 2) {
+                        column3.push(it);
+                    }
+                });
                 setColumnsNumber(3);
-                setItems([
-                    [productsTestData[0], productsTestData[1], productsTestData[2]],
-                    [productsTestData[3], productsTestData[4], productsTestData[5]],
-                    [productsTestData[6], productsTestData[7], productsTestData[8]],
-                ]);
+                setItems([ column1, column2, column3 ]);
             }
             else if (window.innerWidth < 992) {
                 setColumnsNumber(2);
-                setItems([
-                    [productsTestData[0], productsTestData[1], productsTestData[2], productsTestData[3]],
-                    [productsTestData[4], productsTestData[5], productsTestData[6], productsTestData[7], productsTestData[8]]
-                ]);
+                const column1: Product[] = [];
+                const column2: Product[] = [];
+                productsTestData.map((it, index) => {
+                    if (index % 3 === 0) {
+                        column1.push(it);
+                    }
+                    if (index % 3 === 1) {
+                        column2.push(it);
+                    }
+                });
+                setItems([ column1, column2 ]);
             }
         };
         handleResize();

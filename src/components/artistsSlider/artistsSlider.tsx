@@ -5,15 +5,10 @@ import { artistsTestData } from '../../assets/data/testData';
 import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
 import { Link } from 'react-router-dom';
-import { getArtists } from '../../api/productActions';
+import { getArtists } from '../../api/product-service/productActions';
+import { Artist } from '../../type/artist';
 // TODO: FIX SCROLL
 // import { useHorizontalScroll } from './scrollHook';
-
-export type Artist = {
-    id: string;
-    name: string;
-    shortDescription: string;
-}
 
 export function ArtistsSlider() {
     const [ items, setItems ] = useState<Artist[]>([]);
@@ -65,7 +60,7 @@ export function ArtistsSlider() {
                     to={'/artists'}
                 >
                     <button
-                        className={clsx('label-2-white')}
+                        className={clsx('body-1-white')}
                     >
                         Посмотреть всех
                     </button>

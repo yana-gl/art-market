@@ -3,7 +3,8 @@ import { First } from './pages/first/first';
 import classnames from 'classnames';
 import { ArtistsPage } from './pages/artists/artists';
 import { ProductsPage } from './pages/products/products';
-import { ProductCard } from './components/global/productCard/productCard';
+import { ArtistCard } from './pages/artistCard/artistCard';
+import { ProductCard } from './pages/productCard/productCard';
 
 function App() {
     return (
@@ -30,6 +31,10 @@ function App() {
                     <Route
                         path="/products/:id"
                         element={<ProductCard/>}
+                    />
+                    <Route
+                        path="/artists/:id"
+                        element={<ArtistCard/>}
                     />
                 </Routes>
             </div>

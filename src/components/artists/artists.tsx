@@ -4,12 +4,7 @@ import { useEffect, useState } from 'react';
 import { artistsTestData } from '../../assets/data/testData';
 import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
-
-export type Artist = {
-    id: string;
-    name: string;
-    shortDescription: string;
-}
+import { Artist } from '../../type/artist';
 
 export function Artists() {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();
@@ -17,20 +12,38 @@ export function Artists() {
 
     useEffect(() => {
         const handleResize = () => {
+            // делим по 3 столбца
             if (window.innerWidth >= 992) {
+                const column1: Artist[] = [];
+                const column2: Artist[] = [];
+                const column3: Artist[] = [];
+                artistsTestData.map((it, index) => {
+                    if (index % 3 === 0) {
+                        column1.push(it);
+                    }
+                    if (index % 3 === 1) {
+                        column2.push(it);
+                    }
+                    if (index % 3 === 2) {
+                        column3.push(it);
+                    }
+                });
                 setColumnsNumber(3);
-                setItems([
-                    [artistsTestData[0], artistsTestData[1]],
-                    [artistsTestData[2], artistsTestData[3]],
-                    [artistsTestData[4], artistsTestData[5]],
-                ]);
+                setItems([ column1, column2, column3 ]);
             }
             else if (window.innerWidth < 992) {
                 setColumnsNumber(2);
-                setItems([
-                    [artistsTestData[0], artistsTestData[1], artistsTestData[2]],
-                    [artistsTestData[3], artistsTestData[4], artistsTestData[5]]
-                ]);
+                const column1: Artist[] = [];
+                const column2: Artist[] = [];
+                artistsTestData.map((it, index) => {
+                    if (index % 3 === 0) {
+                        column1.push(it);
+                    }
+                    if (index % 3 === 1) {
+                        column2.push(it);
+                    }
+                });
+                setItems([ column1, column2 ]);
             }
         };
         handleResize();

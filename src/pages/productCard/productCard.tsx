@@ -1,8 +1,8 @@
 import './productCard.scss';
-import { productsTestData } from '../../../assets/data/testData';
-import { Wrapper } from '../wrapper/wrapper';
-import { Gallery, Image, ImgView } from '../gallery/src';
-import { AbsoluteLeftControl, AbsoluteRightControl, CloseComponent, Controls, GalleryLayout } from '../gallery/galleryComponents';
+import { productsTestData } from '../../assets/data/testData';
+import { Wrapper } from '../../components/global/wrapper/wrapper';
+import { Gallery, Image, ImgView } from '../../components/global/gallery/src';
+import { AbsoluteLeftControl, AbsoluteRightControl, CloseComponent, Controls, GalleryLayout } from '../../components/global/gallery/galleryComponents';
 import { useState } from 'react';
 import clsx from 'classnames';
 import { Link } from 'react-router-dom';
@@ -14,6 +14,7 @@ export function ProductCard() {
     ];
     const [ mainImgId, setMainImgId ] = useState<string>('1');
     const [ viewIndex, setViewIndex ] = useState<number>(-1);
+    const tg = 'yana_gl8';
 
     return (
         <Wrapper>
@@ -66,7 +67,7 @@ export function ProductCard() {
                                     {item.name}
                                 </div>
                                 <Link
-                                    to={`/products/{id}`}
+                                    to={`/artists/${item.author}`}
                                     className={clsx('caption-1-grey', 'product-card__author')}
                                 >
                                     Автор: {item.author}
@@ -83,11 +84,16 @@ export function ProductCard() {
                         >
                             {item.description}
                         </span>
-                        <button
-                            className={clsx('label-2-white')}
+                        <a
+                            href={`https://t.me/${tg}`}
+                            target={'_blank'}
                         >
-                            Написать продавцу
-                        </button>
+                            <button
+                                className={clsx('body-1-white')}
+                            >
+                                Написать продавцу
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>

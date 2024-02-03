@@ -96,6 +96,10 @@ button {
 	border-radius: 5px;
 	color: $white;
   white-space: nowrap;
+
+	@include maxWidth(600) {
+		padding: 10px 20px;
+  }
 }
 
 a:visited {
