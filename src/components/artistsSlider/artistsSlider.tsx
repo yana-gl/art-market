@@ -1,7 +1,6 @@
 import './artists.scss';
 import clsx from 'classnames';
 import { useEffect, useState } from 'react';
-import { artistsTestData } from '../../assets/data/testData';
 import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
 import { Link } from 'react-router-dom';
@@ -15,13 +14,10 @@ export function ArtistsSlider() {
     // const scrollRef = useHorizontalScroll();
 
     useEffect(() => {
-        getArtists();
-        console.log('pew pew');
-        setItems([
-            artistsTestData[0], artistsTestData[1],
-            artistsTestData[2], artistsTestData[3],
-            artistsTestData[4]
-        ]);
+        getArtists().then(artists => {
+            setItems(artists);
+            window.console.log(artists);
+        });
     }, []);
 
     return (
@@ -50,6 +46,7 @@ export function ArtistsSlider() {
                             isArtist={true}
                             item={it}
                             key={it.id}
+                            photoUrl={it.photo.data.attributes.url}
                         >
                             <ArtistDescription
                                 item={it}

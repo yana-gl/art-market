@@ -25,7 +25,7 @@ export type GalleryProps = {
     // Компонент закрытия просмотра
     closeComponent?: JSXElementConstructor<CloseProps>;
     // Компонент закрытия просмотра
-    onImgClick?: (id: string) => void;
+    onImgClick?: (id: number) => void;
 }
 
 export function Gallery(props: GalleryProps) {

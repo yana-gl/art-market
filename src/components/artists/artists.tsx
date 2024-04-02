@@ -1,21 +1,22 @@
 import './artists.scss';
 import clsx from 'classnames';
 import { useEffect, useState } from 'react';
-import { artistsTestData } from '../../assets/data/testData';
 import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
 import { Artist } from '../../api/product-service/dto/artist';
+import { getArtists } from '../../api/product-service/productActions';
 
 export function Artists() {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();
     const [ items, setItems ] = useState<Artist[][]>([]);
-    // const [ artistsTestData, setArtistsTestData ] = useState<Artist[]>([]);
+    const [ artistsTestData, setArtistsTestData ] = useState<Artist[]>([]);
 
-    // useEffect(() => {
-    //     getArtists().then(artists => {
-    //         setArtistsTestData(artists);
-    //     });
-    // }, []);
+    useEffect(() => {
+        getArtists().then(artists => {
+            setArtistsTestData(artists);
+            window.console.log(artists);
+        });
+    }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -43,10 +44,10 @@ export function Artists() {
                 const column1: Artist[] = [];
                 const column2: Artist[] = [];
                 artistsTestData.map((it, index) => {
-                    if (index % 3 === 0) {
+                    if (index % 2 === 0) {
                         column1.push(it);
                     }
-                    if (index % 3 === 1) {
+                    if (index % 2 === 1) {
                         column2.push(it);
                     }
                 });
@@ -68,7 +69,10 @@ export function Artists() {
             >
                 ХУДОЖНИКИ
             </h2>
-            <div className='artists__table'>
+            <div className={clsx(
+                'artists__table',
+                `artists__table--${columnsNumber}`
+            )}>
                 {
                     items.map((array, index) => {
                         return (
@@ -85,6 +89,7 @@ export function Artists() {
                                         isArtist={true}
                                         item={it}
                                         key={it.id}
+                                        photoUrl={it.photo.data.attributes.url}
                                     >
                                         <ArtistDescription
                                             item={it}

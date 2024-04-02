@@ -15,8 +15,8 @@
 
   &__img {
     border: 1px solid white;
-    // проверить, что оно обрезает, а не растягивает
     aspect-ratio: 1/1;
+    object-fit: cover;
   }
 
   &__frame {

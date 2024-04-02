@@ -5,11 +5,9 @@ export type StrapiData<T> = {
 }
 
 export type StrapiObject<T> = {
-    date: StrapiData<T>;
+    data: StrapiData<T>;
 }
 
 export type StrapiArray<T> = {
-    date: {
-        date: (StrapiData<T>)[];
-    }
+    data: Array<StrapiData<T>>;
 }

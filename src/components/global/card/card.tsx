@@ -3,16 +3,18 @@ import clsx from 'classnames';
 import { ReactNode } from 'react';
 import frame from '../../../assets/img/png/frame.png';
 import { Link } from 'react-router-dom';
+import { cmsUrl } from '../../../api/product-service/productActions';
 
 export interface CardProps {
     item: {
         id: string;
     },
+    photoUrl?: string;
     children: ReactNode;
     isArtist?: boolean;
 }
 
-export function Card({ item, children, isArtist=false }: CardProps) {
+export function Card({ item, children, isArtist=false, photoUrl }: CardProps) {
     return (
         <Link
             to={`/${isArtist ? 'artists' : 'products'}/${item.id}`}
@@ -28,7 +30,7 @@ export function Card({ item, children, isArtist=false }: CardProps) {
                         className={'card__frame'}
                     />
                     <img
-                        src={`products/${item.id}.jpeg`}
+                        src={`${cmsUrl}${photoUrl}`}
                         className={'card__img'}
                     />
                 </div>

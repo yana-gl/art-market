@@ -34,24 +34,33 @@
   }
 
   &__table {
-    @include flex-row(space-between, start, 40);
+    display: grid;
+    gap: 40px;
 
     width: 100%;
 
     @include maxWidth(1200) {
-      @include flex-row(space-between, start, 20);
+      gap: 20px;
     }
 
     @include maxWidth(1000) {
-      @include flex-row(space-between, start, 10);
+      gap: 10px;
     }
 
     @include maxWidth(992) {
-      @include flex-row(space-between, start, 20);
+      gap: 20px;
     }
 
     @include maxWidth(480) {
-      @include flex-row(space-between, start, 15);
+      gap: 15px;
+    }
+
+    &--2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &--3 {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 

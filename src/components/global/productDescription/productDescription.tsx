@@ -18,7 +18,7 @@ export function ProductDescription({ item }: ProductDescriptionProps) {
                     {item.name}
                 </span>
                 <span>
-                    {item.author.name}
+                    {item.artist.name}
                 </span>
             </div>
             <span
