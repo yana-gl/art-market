@@ -4,8 +4,9 @@ import clsx from 'classnames';
 import { ProductsMini } from '../../components/products/products';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Artist } from '../../api/product-service/dto/artist';
-import { cmsUrl, getArtist } from '../../api/product-service/productActions';
+import { Artist } from '@/app/api/artist-service/dto/artist';
+import { getArtist } from '@/app/api/artist-service/artistActions';
+import { cmsUrl } from '@/app/config/appConfig';
 
 export function ArtistCard() {
     const [ item, setItem ] = useState<Artist>();

@@ -1,4 +1,3 @@
-
 export type StrapiData<T> = {
     id: string;
     attributes: Omit<T, 'id'>;

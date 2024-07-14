@@ -9,6 +9,7 @@ import { Suspense } from 'react';
 import { ScrollToTop } from './components/global/scrollToTop/scrollToTop';
 
 function App() {
+    
     return (
         <>
             <div

@@ -1,4 +1,4 @@
-import { Artist } from '../../../api/product-service/dto/artist';
+import { Artist } from '../../../app/api/product-service/dto/artist';
 import './artistDescription.scss';
 import clsx from 'classnames';
 

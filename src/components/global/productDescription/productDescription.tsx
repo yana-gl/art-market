@@ -1,4 +1,4 @@
-import { Product } from '../../../api/product-service/dto/product';
+import { Product } from '../../../app/api/product-service/dto/product';
 import './productDescription.scss';
 import clsx from 'classnames';
 

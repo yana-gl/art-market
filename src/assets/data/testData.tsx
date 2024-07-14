@@ -1,52 +1,79 @@
-import { Artist } from '../../api/product-service/dto/artist';
-import { Product } from '../../api/product-service/dto/product';
 
+import { Artist } from '../../app/api/artist-service/dto/artist';
+import { Product } from '../../app/api/product-service/dto/product';
 
 export const artistsTestData: Artist[] = [
     {
         id: '21',
         name: 'Иван Иванов',
         shortDescription: 'Ковровая вышивка, кольца, украшения, открытки',
+        photo: {
+            data: {
+                id: '',
+                attributes: undefined
+            }
+        },
+        tg: '1'
     },
     {
         id: '22',
         name: 'Иван Иванов',
         shortDescription: 'Ковровая вышивка, кольца, украшения, открытки',
+        photo: {
+            data: {
+                id: '',
+                attributes: undefined
+            }
+        },
+        tg: '1'
     },
     {
         id: '23',
         name: 'Иван Иванов',
         shortDescription: 'Ковровая вышивка, кольца, украшения, открытки',
+        photo: {
+            data: {
+                id: '',
+                attributes: undefined
+            }
+        },
+        tg: '1'
     },
     {
         id: '24',
         name: 'Иван Иванов',
         shortDescription: 'Ковровая вышивка, кольца, украшения, открытки',
+        photo: {
+            data: {
+                id: '',
+                attributes: undefined
+            }
+        },
+        tg: '1'
     },
     {
         id: '25',
         name: 'Иван Иванов',
         shortDescription: 'Ковровая вышивка, кольца, украшения, открытки',
+        photo: {
+            data: {
+                id: '',
+                attributes: undefined
+            }
+        },
+        tg: '1'
     },
     {
         id: '26',
         name: 'Иван Иванов',
         shortDescription: 'Ковровая вышивка, кольца, украшения, открытки',
-    },
-    {
-        id: '27',
-        name: 'Иван Иванов',
-        shortDescription: 'Ковровая вышивка, кольца, украшения, открытки',
-    },
-    {
-        id: '28',
-        name: 'Иван Иванов',
-        shortDescription: 'Ковровая вышивка, кольца, украшения, открытки',
-    },
-    {
-        id: '29',
-        name: 'Иван Иванов',
-        shortDescription: 'Ковровая вышивка, кольца, украшения, открытки',
+        photo: {
+            data: {
+                id: '',
+                attributes: undefined
+            }
+        },
+        tg: '1'
     },
 ];
 

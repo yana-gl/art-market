@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
 import { Link } from 'react-router-dom';
-import { getArtists } from '../../api/product-service/productActions';
-import { Artist } from '../../api/product-service/dto/artist';
+import { Artist } from '@/app/api/artist-service/dto/artist';
+import { getArtists } from '@/app/api/artist-service/artistActions';
 // TODO: FIX SCROLL
 // import { useHorizontalScroll } from './scrollHook';
 

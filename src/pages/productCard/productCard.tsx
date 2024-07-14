@@ -5,8 +5,9 @@ import { AbsoluteLeftControl, AbsoluteRightControl, CloseComponent, Controls, Ga
 import { useEffect, useState } from 'react';
 import clsx from 'classnames';
 import { Link, useParams } from 'react-router-dom';
-import { cmsUrl, getProduct } from '../../api/product-service/productActions';
-import { Product } from '../../api/product-service/dto/product';
+import { getProduct } from '../../app/api/product-service/productActions';
+import { Product } from '../../app/api/product-service/dto/product';
+import { cmsUrl } from '@/app/config/appConfig';
 
 export function ProductCard() {
     // const item =  productsTestData[0];

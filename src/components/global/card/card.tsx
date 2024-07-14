@@ -3,7 +3,7 @@ import clsx from 'classnames';
 import { ReactNode } from 'react';
 import frame from '../../../assets/img/png/frame.png';
 import { Link } from 'react-router-dom';
-import { cmsUrl } from '../../../api/product-service/productActions';
+import { cmsUrl } from '@/app/config/appConfig';
 
 export interface CardProps {
     item: {

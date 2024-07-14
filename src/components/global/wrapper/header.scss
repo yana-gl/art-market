@@ -8,6 +8,12 @@
   @include flex-column(flex-start, end, 20);
 
   padding: 20px;
+  padding-right: 40px;
+
+  @include maxWidth(600) {
+    padding-right: 15px;
+  }
+
   position: absolute;
   z-index: 50;
   top: 65px;

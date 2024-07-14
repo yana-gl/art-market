@@ -3,8 +3,8 @@ import clsx from 'classnames';
 import { useEffect, useState } from 'react';
 import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
-import { Artist } from '../../api/product-service/dto/artist';
-import { getArtists } from '../../api/product-service/productActions';
+import { Artist } from '@/app/api/artist-service/dto/artist';
+import { getArtists } from '@/app/api/artist-service/artistActions';
 
 export function Artists() {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();

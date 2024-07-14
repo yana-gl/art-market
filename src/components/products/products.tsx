@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { Card } from '../global/card/card';
 import { ProductDescription } from '../global/productDescription/productDescription';
 import { Link } from 'react-router-dom';
-import { Product } from '../../api/product-service/dto/product';
-import { getProducts, getProductsByAuthor } from '../../api/product-service/productActions';
+import { Product } from '../../app/api/product-service/dto/product';
+import { getProducts, getProductsByAuthor } from '../../app/api/product-service/productActions';
 
 export function ProductsMini({hasTitle=true, authorId}: {hasTitle?: boolean, authorId?: string}) {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();
