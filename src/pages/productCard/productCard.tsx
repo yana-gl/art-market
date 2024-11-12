@@ -10,13 +10,10 @@ import { Product } from '../../app/api/product-service/dto/product';
 import { cmsUrl } from '@/app/config/appConfig';
 
 export function ProductCard() {
-    // const item =  productsTestData[0];
     const [ mainImgId, setMainImgId ] = useState<number>(0);
     const [ viewIndex, setViewIndex ] = useState<number>(-1);
-
     const [ item, setItem ] = useState<Product>();
-
-    const params = useParams();
+    const params = useParams<{id: string}>();
 
     useEffect(() => {
         if (params.id) {
@@ -37,16 +34,16 @@ export function ProductCard() {
                         className={'product-card__images'}
                     >
                         <img
-                            src={`${cmsUrl}${item.photos?.data[mainImgId].attributes.url}`}
+                            src={`${cmsUrl}${item.photos?.[mainImgId].url}`}
                             className={'product-card__img'}
                             onClick={() => setViewIndex(mainImgId)}
                         />
                         <Gallery
                             onImgClick={setMainImgId}
                             galleryLayout={GalleryLayout}
-                            images={item.photos?.data.map((it, index) => ({
+                            images={item.photos?.map((it, index) => ({
                                 id: index,
-                                src: `${cmsUrl}${it.attributes.url}`,
+                                src: `${cmsUrl}${it.url}`,
                             })) ?? []}
                         />
                     </div>
@@ -82,7 +79,7 @@ export function ProductCard() {
                                         {item.name}
                                     </div>
                                     <Link
-                                        to={`/artists/${item.artist.id}`}
+                                        to={`/artists/${item.artist.documentId}`}
                                         className={clsx('caption-1-grey', 'product-card__author')}
                                     >
                                         Автор: {item.artist.name}
@@ -116,9 +113,9 @@ export function ProductCard() {
             {
                 viewIndex > -1 &&
                 <ImgView
-                    images={item?.photos?.data.map((it, index) => ({
+                    images={item?.photos?.map((it, index) => ({
                         id: index,
-                        src: `${cmsUrl}${it.attributes.url}`,
+                        src: `${cmsUrl}${it.url}`,
                     })) ?? []}
                     close={() => setViewIndex(-1)}
                     initIndex={viewIndex}

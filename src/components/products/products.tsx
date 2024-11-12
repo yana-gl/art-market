@@ -15,12 +15,10 @@ export function ProductsMini({hasTitle=true, authorId}: {hasTitle?: boolean, aut
     useEffect(() => {
         if (authorId) {
             getProductsByAuthor(authorId).then(products => {
-                window.console.log(products[0].photos);
                 setProductsTestData(products);
             });
         } else {
             getProducts().then(products => {
-                window.console.log(products[0].photos);
                 setProductsTestData(products);
             });
         }
@@ -98,8 +96,8 @@ export function ProductsMini({hasTitle=true, authorId}: {hasTitle?: boolean, aut
                                 {
                                     array.map(it => <Card
                                         item={it}
-                                        key={it.id}
-                                        photoUrl={it.photos?.data[0].attributes.url}
+                                        key={it.documentId}
+                                        photoUrl={it.photos?.[0]?.url}
                                     >
                                         <ProductDescription item={it}/>
                                     </Card>)
@@ -204,8 +202,8 @@ export function Products() {
                                 {
                                     array.map(it => <Card
                                         item={it}
-                                        key={it.id}
-                                        photoUrl={it.photos?.data[0].attributes.url}
+                                        key={it.documentId}
+                                        photoUrl={it.photos?.[0].url}
                                     >
                                         <ProductDescription item={it}/>
                                     </Card>)

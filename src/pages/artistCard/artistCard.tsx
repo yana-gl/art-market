@@ -6,12 +6,12 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Artist } from '@/app/api/artist-service/dto/artist';
 import { getArtist } from '@/app/api/artist-service/artistActions';
-import { cmsUrl } from '@/app/config/appConfig';
+import { cmsApiUrl, cmsUrl } from '@/app/config/appConfig';
 
 export function ArtistCard() {
     const [ item, setItem ] = useState<Artist>();
 
-    const params = useParams();
+    const params = useParams<{id: string}>();
 
     useEffect(() => {
         if (params.id) {
@@ -32,7 +32,7 @@ export function ArtistCard() {
                         className={'product-card__images'}
                     >
                         <img
-                            src={`${cmsUrl}${item.photo?.data.attributes.url}`}
+                            src={`${cmsUrl}${item.photo?.url}`}
                             className={'product-card__img'}
                         />
                     </div>
@@ -69,8 +69,8 @@ export function ArtistCard() {
                 </div>
             }
             {
-                item?.id &&
-                <ProductsMini hasTitle={false} authorId={item?.id}/>
+                item?.documentId &&
+                <ProductsMini hasTitle={false} authorId={item?.documentId}/>
             }
         </Wrapper>
     )

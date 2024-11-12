@@ -46,7 +46,7 @@ export function ArtistsSlider() {
                             isArtist={true}
                             item={it}
                             key={it.id}
-                            photoUrl={it.photo.data.attributes.url}
+                            photoUrl={it.photo?.url}
                         >
                             <ArtistDescription
                                 item={it}

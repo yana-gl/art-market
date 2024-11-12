@@ -7,7 +7,7 @@ import { cmsUrl } from '@/app/config/appConfig';
 
 export interface CardProps {
     item: {
-        id: string;
+        documentId: string;
     },
     photoUrl?: string;
     children: ReactNode;
@@ -17,7 +17,7 @@ export interface CardProps {
 export function Card({ item, children, isArtist=false, photoUrl }: CardProps) {
     return (
         <Link
-            to={`/${isArtist ? 'artists' : 'products'}/${item.id}`}
+            to={`/${isArtist ? 'artists' : 'products'}/${item.documentId}`}
         >
             <div
                 className={'card'}

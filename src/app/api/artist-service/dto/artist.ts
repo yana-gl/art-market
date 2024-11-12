@@ -1,9 +1,9 @@
-import { StrapiObject } from '../../global/dto/strapiInterface';
+import { Photo } from "../../global/dto/photo";
 
 export type Artist = {
-    id: string;
+    documentId: string;
     name: string;
     shortDescription: string;
-    photo: StrapiObject<{url: string}>;
+    photo: Photo;
     tg: string;
 }
