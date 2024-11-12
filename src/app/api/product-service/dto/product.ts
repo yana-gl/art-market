@@ -1,7 +1,6 @@
 import { Artist } from '../../artist-service/dto/artist';
-import { SimpleObjectInterface } from '../../global/dto/category';
+import { SimpleObjectInterface } from '../../global/dto/simpleObjectInterface';
 import { Photo } from '../../global/dto/photo';
-import { StrapiArray } from '../../global/dto/strapiInterface';
 
 export type Product = {
     documentId: string;
