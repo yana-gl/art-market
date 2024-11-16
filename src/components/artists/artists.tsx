@@ -5,6 +5,7 @@ import { Card } from '../global/card/card';
 import { ArtistDescription } from '../global/artistDescription/artistDescription';
 import { Artist } from '@/app/api/artist-service/dto/artist';
 import { getArtists } from '@/app/api/artist-service/artistActions';
+import { Pagination } from '@mui/material';
 
 export function Artists() {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();
@@ -88,7 +89,7 @@ export function Artists() {
                                     array.map(it => (<Card
                                         isArtist={true}
                                         item={it}
-                                        key={it.id}
+                                        key={it.documentId}
                                         photoUrl={it.photo?.url}
                                     >
                                         <ArtistDescription
@@ -101,6 +102,7 @@ export function Artists() {
                     })
                 }
             </div>
+            <Pagination/>
         </div>
     )
 }

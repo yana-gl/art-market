@@ -9,7 +9,6 @@ import { Suspense } from 'react';
 import { ScrollToTop } from './components/global/scrollToTop/scrollToTop';
 
 function App() {
-    
     return (
         <>
             <div
@@ -22,23 +21,23 @@ function App() {
                 <Suspense fallback={<>...</>}>
                     <Routes>
                         <Route
-                            path="/"
+                            path='/'
                             element={<First/>}
                         />
                         <Route
-                            path="/artists"
-                            element={<ArtistsPage/>}
-                        />
-                        <Route
-                            path="/products"
+                            path='/products'
                             element={<ProductsPage/>}
                         />
                         <Route
-                            path="/products/:id"
+                            path='/products/:id'
                             element={<ProductCard/>}
                         />
                         <Route
-                            path="/artists/:id"
+                            path='/artists'
+                            element={<ArtistsPage/>}
+                        />
+                        <Route
+                            path='/artists/:id'
                             element={<ArtistCard/>}
                         />
                     </Routes>

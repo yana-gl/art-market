@@ -4,5 +4,5 @@ export const cmsApiUrl = 'http://localhost:1337/api';
 
 export const headers = { Authorization: `Bearer ${token}` };
 export const populateParams = { populate: '*' };
-export const PAGE_SIZE = 10;
+export const PAGE_SIZE = 18;
 export const PAGE = 0;

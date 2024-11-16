@@ -1,34 +1,29 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './products.scss';
 import clsx from 'classnames';
 import { useEffect, useState } from 'react';
 import { Card } from '../global/card/card';
 import { ProductDescription } from '../global/productDescription/productDescription';
+import { Link } from 'react-router-dom';
 import { Product } from '../../app/api/product-service/dto/product';
 import { getProducts } from '../../app/api/product-service/productActions';
-import { Pagination } from '@mui/material';
-import CategoriesSelect from './serviceSelect';
 
-export function Products() {
+interface ProductsMiniProps {
+    hasTitle?: boolean;
+    authorId?: string;
+}
+
+export function ProductsMini({hasTitle=true, authorId}: ProductsMiniProps) {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();
     const [ items, setItems ] = useState<Product[][]>([]);
     const [ productsTestData, setProductsTestData ] = useState<Product[]>([]);
-    const [ pageCount, setPageCount ] = useState<number>(1);
-    const [ page, setPage ] = useState<number>(1);
 
     useEffect(() => {
-        getProducts({
-            page: page,
-            // todo: убрать
-            pageSize: 3,
-        }).then((data) => {
-            setPageCount(data.meta.pagination?.pageCount);
-            setProductsTestData(data.data);
-        });
-    }, [page]);
+        getProducts({ id: authorId }).then(data => setProductsTestData(data.data));
+    }, []);
 
     useEffect(() => {
         const handleResize = () => {
-            window.console.log(productsTestData);
             // делим по 3 столбца
             if (window.innerWidth >= 992) {
                 const column1: Product[] = [];
@@ -70,15 +65,17 @@ export function Products() {
 
     return (
         <div className={'products'}>
-            <h2
-                className={clsx(
-                    'title-1-black',
-                    'products__title'
-                )}
-            >
-                ТОВАРЫ
-            </h2>
-            <CategoriesSelect/>
+            {
+                hasTitle &&
+                <h2
+                    className={clsx(
+                        'title-1-black',
+                        'products__title'
+                    )}
+                >
+                    ТОВАРЫ
+                </h2>
+            }
             <div className={clsx(
                 'products__table',
                 `products__table--${columnsNumber}`
@@ -98,7 +95,7 @@ export function Products() {
                                     array.map(it => <Card
                                         item={it}
                                         key={it.documentId}
-                                        photoUrl={it.photos?.[0].url}
+                                        photoUrl={it.photos?.[0]?.url}
                                     >
                                         <ProductDescription item={it}/>
                                     </Card>)
@@ -108,12 +105,15 @@ export function Products() {
                     })
                 }
             </div>
-            <Pagination
-                count={pageCount}
-                page={page}
-                onChange={(_e, value) => setPage(value)}
-                shape={'rounded'}
-            />
+            <Link
+                to={'/products'}
+            >
+                <button
+                    className={clsx('body-1-white')}
+                >
+                    Посмотреть все
+                </button>
+            </Link>
         </div>
     )
 }

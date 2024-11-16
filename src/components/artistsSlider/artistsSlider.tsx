@@ -16,7 +16,6 @@ export function ArtistsSlider() {
     useEffect(() => {
         getArtists().then(artists => {
             setItems(artists);
-            window.console.log(artists);
         });
     }, []);
 
@@ -45,7 +44,7 @@ export function ArtistsSlider() {
                         <Card
                             isArtist={true}
                             item={it}
-                            key={it.id}
+                            key={it.documentId}
                             photoUrl={it.photo?.url}
                         >
                             <ArtistDescription

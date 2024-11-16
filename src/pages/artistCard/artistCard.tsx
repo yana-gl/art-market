@@ -1,12 +1,12 @@
 import './artistCard.scss';
 import { Wrapper } from '../../components/global/wrapper/wrapper';
 import clsx from 'classnames';
-import { ProductsMini } from '../../components/products/products';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Artist } from '@/app/api/artist-service/dto/artist';
 import { getArtist } from '@/app/api/artist-service/artistActions';
-import { cmsApiUrl, cmsUrl } from '@/app/config/appConfig';
+import { cmsUrl } from '@/app/config/appConfig';
+import { ProductsMini } from '@/components/products/productsMini';
 
 export function ArtistCard() {
     const [ item, setItem ] = useState<Artist>();
