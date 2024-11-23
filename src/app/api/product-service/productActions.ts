@@ -7,26 +7,18 @@ import { client } from '../global/apiClient';
 const pathToProducts = `${cmsApiUrl}/products`;
 
 export const getProducts = (params?: ProductsParams) => {
-	const {page, pageSize, id} = params ?? {};
-	const url = id ? `${pathToProducts}?filters[artist][id][$eq]=${id}` : pathToProducts;
-	// return axios.get<StrapiArray<Product>>(
-	// 	url,
-	// 	{
-	// 		headers,
-	// 		params: Object.assign({
-	// 			pagination: {
-	// 				page: page ?? PAGE,
-	// 				pageSize: pageSize ?? PAGE_SIZE,
-	// 			}
-	// 		}, populateParams),
-	// 	}
-	// ).then(response => response.data);
-	return client.index('product').search<Product>('',{
+	const {page, pageSize, artistId} = params ?? {};
+	const queryParams = {
 		attributesToSearchOn: ['name', 'shortDescription', 'tg'],
 		// attributesToRetrieve: ['name', 'shortDescription', 'tg', 'id'],
 		hitsPerPage: pageSize ?? PAGE_SIZE,
 		page: page ?? PAGE,
-	});
+		filter: undefined,
+	};
+	if (artistId) {
+		queryParams.filter = `artist.id = ${artistId}`;
+	}
+	return client.index('product').search<Product>('', queryParams);
 };
 
 export const getProduct: (id: string) => Promise<Product> = (id: string) => axios.get(

@@ -6,6 +6,7 @@ import { ProductDescription } from '../global/productDescription/productDescript
 import { Product } from '../../app/api/product-service/dto/product';
 import { getProducts } from '../../app/api/product-service/productActions';
 import { Pagination } from '@mui/material';
+import { client } from '@/app/api/global/apiClient';
 
 interface ProductsProps {
     authorId?: string;
@@ -22,7 +23,7 @@ export function Products({ authorId, hasTitle = true }: ProductsProps) {
     useEffect(() => {
         getProducts({
             page: page,
-            id: authorId,
+            artistId: authorId,
             // todo: убрать
             pageSize: 3,
         }).then((data) => {

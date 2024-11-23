@@ -1,5 +1,5 @@
 import { PaginationParams } from "../../global/params/paginationParams";
 
 export type ProductsParams = {
-    id?: string;
+    artistId?: string;
 } & PaginationParams;
