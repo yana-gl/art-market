@@ -1,28 +1,29 @@
 import axios from 'axios';
 import { Artist } from './dto/artist';
-import { StrapiArray, StrapiObject } from '../global/dto/strapiInterface';
 import { cmsApiUrl, populateParams, headers, PAGE, PAGE_SIZE } from '../../config/appConfig';
 import { ArtistsParams } from './params/artistsParams';
+import { client } from '../global/apiClient';
 
 const pathToArtists = `${cmsApiUrl}/artists`;
 
 export const getArtists = (params?: ArtistsParams) => {
 	const {page, pageSize} = params ?? {};
-	return axios.get<StrapiArray<Artist>>(
-		pathToArtists,
-		{
-			headers,
-			params: Object.assign({
-				pagination: {
-					page: page ?? PAGE,
-					pageSize: pageSize ?? PAGE_SIZE,
-				}
-			}, populateParams),
-		}
-	).then(response => response.data.data);
+    return client.index('artist').search<Artist>('',{
+		attributesToSearchOn: ['name', 'shortDescription', 'tg'],
+		// attributesToRetrieve: ['name', 'shortDescription', 'tg', 'id'],
+		hitsPerPage: pageSize ?? PAGE_SIZE,
+		page: page ?? PAGE,
+	});
 };
 
-export const getArtist: (id: string) => Promise<Artist> = (id: string) => axios.get<StrapiObject<Artist>>(
+export const getArtist: (id: string) => Promise<Artist> = (id: string) => axios.get(
 	`${pathToArtists}/${id}`,
 	{ headers, params: Object.assign({}, populateParams) }
-).then(response => response.data.data);
+).then(response => {
+	const artist = {
+		id: response.data.data.id,
+		...response.data.data.attributes,
+		photo: response.data.data.attributes.photo.data.attributes,
+	};
+	return artist;
+});

@@ -17,3 +17,11 @@ export type StrapiArray<T> = {
     data: Array<T>;
     meta?: Meta;
 }
+
+export type MeilisearchArray<T> = {
+    hits: Array<T>;
+    hitsPerPage: number;
+    page: number;
+    totalHits: number;
+    totalPages: number;
+}

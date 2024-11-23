@@ -6,9 +6,13 @@ import { ProductDescription } from '../global/productDescription/productDescript
 import { Product } from '../../app/api/product-service/dto/product';
 import { getProducts } from '../../app/api/product-service/productActions';
 import { Pagination } from '@mui/material';
-import CategoriesSelect from './serviceSelect';
 
-export function Products() {
+interface ProductsProps {
+    authorId?: string;
+    hasTitle?: boolean;
+}
+
+export function Products({ authorId, hasTitle = true }: ProductsProps) {
     const [ columnsNumber, setColumnsNumber ] = useState<number>();
     const [ items, setItems ] = useState<Product[][]>([]);
     const [ productsTestData, setProductsTestData ] = useState<Product[]>([]);
@@ -18,13 +22,14 @@ export function Products() {
     useEffect(() => {
         getProducts({
             page: page,
+            id: authorId,
             // todo: убрать
             pageSize: 3,
         }).then((data) => {
-            setPageCount(data.meta.pagination?.pageCount);
-            setProductsTestData(data.data);
+            setPageCount(data.totalPages);
+            setProductsTestData(data.hits);
         });
-    }, [page]);
+    }, [ page, authorId ]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -70,15 +75,17 @@ export function Products() {
 
     return (
         <div className={'products'}>
-            <h2
-                className={clsx(
-                    'title-1-black',
-                    'products__title'
-                )}
-            >
-                ТОВАРЫ
-            </h2>
-            <CategoriesSelect/>
+            {
+                hasTitle &&
+                <h2
+                    className={clsx(
+                        'title-1-black',
+                        'products__title'
+                    )}
+                >
+                    ТОВАРЫ
+                </h2>
+            }
             <div className={clsx(
                 'products__table',
                 `products__table--${columnsNumber}`
@@ -97,7 +104,7 @@ export function Products() {
                                 {
                                     array.map(it => <Card
                                         item={it}
-                                        key={it.documentId}
+                                        key={it.id}
                                         photoUrl={it.photos?.[0].url}
                                     >
                                         <ProductDescription item={it}/>

@@ -13,9 +13,8 @@ export function Artists() {
     const [ artistsTestData, setArtistsTestData ] = useState<Artist[]>([]);
 
     useEffect(() => {
-        getArtists().then(artists => {
-            setArtistsTestData(artists);
-            window.console.log(artists);
+        getArtists().then(res => {
+            setArtistsTestData(res.hits);
         });
     }, []);
 
@@ -89,7 +88,7 @@ export function Artists() {
                                     array.map(it => (<Card
                                         isArtist={true}
                                         item={it}
-                                        key={it.documentId}
+                                        key={it.id}
                                         photoUrl={it.photo?.url}
                                     >
                                         <ArtistDescription

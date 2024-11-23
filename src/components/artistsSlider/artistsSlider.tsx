@@ -14,8 +14,8 @@ export function ArtistsSlider() {
     // const scrollRef = useHorizontalScroll();
 
     useEffect(() => {
-        getArtists().then(artists => {
-            setItems(artists);
+        getArtists().then(res => {
+            setItems(res.hits);
         });
     }, []);
 
@@ -44,7 +44,7 @@ export function ArtistsSlider() {
                         <Card
                             isArtist={true}
                             item={it}
-                            key={it.documentId}
+                            key={it.id}
                             photoUrl={it.photo?.url}
                         >
                             <ArtistDescription

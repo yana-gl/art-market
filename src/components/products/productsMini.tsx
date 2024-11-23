@@ -19,7 +19,7 @@ export function ProductsMini({hasTitle=true, authorId}: ProductsMiniProps) {
     const [ productsTestData, setProductsTestData ] = useState<Product[]>([]);
 
     useEffect(() => {
-        getProducts({ id: authorId }).then(data => setProductsTestData(data.data));
+        getProducts({ id: authorId }).then(data => setProductsTestData(data.hits));
     }, []);
 
     useEffect(() => {
@@ -94,7 +94,7 @@ export function ProductsMini({hasTitle=true, authorId}: ProductsMiniProps) {
                                 {
                                     array.map(it => <Card
                                         item={it}
-                                        key={it.documentId}
+                                        key={it.id}
                                         photoUrl={it.photos?.[0]?.url}
                                     >
                                         <ProductDescription item={it}/>

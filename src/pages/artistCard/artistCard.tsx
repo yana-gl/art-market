@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Artist } from '@/app/api/artist-service/dto/artist';
 import { getArtist } from '@/app/api/artist-service/artistActions';
 import { cmsUrl } from '@/app/config/appConfig';
-import { ProductsMini } from '@/components/products/productsMini';
+import { Products } from '@/components/products/products';
 
 export function ArtistCard() {
     const [ item, setItem ] = useState<Artist>();
@@ -69,8 +69,8 @@ export function ArtistCard() {
                 </div>
             }
             {
-                item?.documentId &&
-                <ProductsMini hasTitle={false} authorId={item?.documentId}/>
+                item?.id &&
+                <Products authorId={item?.id} hasTitle={false}/>
             }
         </Wrapper>
     )

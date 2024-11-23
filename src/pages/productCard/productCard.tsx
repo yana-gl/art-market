@@ -50,7 +50,7 @@ export function ProductCard() {
                     <div
                         className={'product-card__right-side'}
                     >
-                        <span
+                        {/* <span
                             className={clsx('product-card__bread-crumbs', 'caption-1-grey')}
                         >
                             <Link
@@ -65,7 +65,7 @@ export function ProductCard() {
                             >
                                 {item.category.name}
                             </Link>
-                        </span>
+                        </span> */}
                         <div
                             className={'product-card__info'}
                         >
@@ -79,7 +79,7 @@ export function ProductCard() {
                                         {item.name}
                                     </div>
                                     <Link
-                                        to={`/artists/${item.artist.documentId}`}
+                                        to={`/artists/${item.artist.id}`}
                                         className={clsx('caption-1-grey', 'product-card__author')}
                                     >
                                         Автор: {item.artist.name}

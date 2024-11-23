@@ -3,7 +3,7 @@ import { SimpleObjectInterface } from '../../global/dto/simpleObjectInterface';
 import { Photo } from '../../global/dto/photo';
 
 export type Product = {
-    documentId: string;
+    id: string;
     name: string;
     artist: Artist;
     price: number;

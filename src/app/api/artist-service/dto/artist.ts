@@ -1,7 +1,7 @@
 import { Photo } from "../../global/dto/photo";
 
 export type Artist = {
-    documentId: string;
+    id: string;
     name: string;
     shortDescription: string;
     photo: Photo;
