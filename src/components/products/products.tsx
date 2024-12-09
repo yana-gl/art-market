@@ -6,7 +6,7 @@ import { ProductDescription } from '../global/productDescription/productDescript
 import { Product } from '../../app/api/product-service/dto/product';
 import { getProducts } from '../../app/api/product-service/productActions';
 import { Pagination } from '@mui/material';
-import { client } from '@/app/api/global/apiClient';
+import CategoriesSelect from './categoriesSelect';
 
 interface ProductsProps {
     authorId?: string;
@@ -18,11 +18,13 @@ export function Products({ authorId, hasTitle = true }: ProductsProps) {
     const [ items, setItems ] = useState<Product[][]>([]);
     const [ productsTestData, setProductsTestData ] = useState<Product[]>([]);
     const [ pageCount, setPageCount ] = useState<number>(1);
+    const [ categoryIds, setCategoryIds ] = useState<string[]>([]);
     const [ page, setPage ] = useState<number>(1);
 
     useEffect(() => {
         getProducts({
-            page: page,
+            page,
+            categoryIds,
             artistId: authorId,
             // todo: убрать
             pageSize: 3,
@@ -30,7 +32,7 @@ export function Products({ authorId, hasTitle = true }: ProductsProps) {
             setPageCount(data.totalPages);
             setProductsTestData(data.hits);
         });
-    }, [ page, authorId ]);
+    }, [ page, authorId, categoryIds ]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -87,6 +89,7 @@ export function Products({ authorId, hasTitle = true }: ProductsProps) {
                     ТОВАРЫ
                 </h2>
             }
+            <CategoriesSelect onChange={selectedCategories => setCategoryIds(selectedCategories.map(it => it.id))}/>
             <div className={clsx(
                 'products__table',
                 `products__table--${columnsNumber}`

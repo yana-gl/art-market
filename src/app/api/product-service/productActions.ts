@@ -7,7 +7,7 @@ import { client } from '../global/apiClient';
 const pathToProducts = `${cmsApiUrl}/products`;
 
 export const getProducts = (params?: ProductsParams) => {
-	const {page, pageSize, artistId} = params ?? {};
+	const { page, pageSize, artistId, categoryIds } = params ?? {};
 	const queryParams = {
 		attributesToSearchOn: ['name', 'shortDescription', 'tg'],
 		// attributesToRetrieve: ['name', 'shortDescription', 'tg', 'id'],
@@ -15,9 +15,14 @@ export const getProducts = (params?: ProductsParams) => {
 		page: page ?? PAGE,
 		filter: undefined,
 	};
+	const filterStringArray = [];
 	if (artistId) {
-		queryParams.filter = `artist.id = ${artistId}`;
+		filterStringArray.push(`artist.id = ${artistId}`);
 	}
+	if (categoryIds.length) {
+		filterStringArray.push(categoryIds.map(categoryId => `category.id = ${categoryId}`).join(' OR '));
+	}
+	queryParams.filter = filterStringArray.map(filterString => `(${filterString})`).join(' AND ');
 	return client.index('product').search<Product>('', queryParams);
 };
 

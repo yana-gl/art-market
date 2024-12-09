@@ -1,23 +1,16 @@
-import axios from 'axios';
 import { Category } from './dto/category';
-import { StrapiArray } from '../global/dto/strapiInterface';
-import { cmsApiUrl, populateParams, headers } from '../../config/appConfig';
+import { PAGE, PAGE_SIZE } from '../../config/appConfig';
 import { CategoriesParams } from './params/categoriesParams';
-
-const pathToCategories = `${cmsApiUrl}/categories`;
+import { client } from '../global/apiClient';
 
 export const getCategories = (params?: CategoriesParams) => {
-	const { searchString } = params ?? {};
-	// const url = searchString ?  `${pathToCategories}?filters[name][$containsi]=${searchString}` : pathToCategories;
-	const url = `${pathToCategories}?filters[name][$contains]=${'ак'}`;
-
-	return axios.get<StrapiArray<Category>>(
-		url,
-		{
-			headers,
-			params: Object.assign({
-				// sort: 'name:asc',
-			}, populateParams),
-		}
-	).then(response => response.data.data);
+	const {page, pageSize, q } = params ?? {};
+	const queryParams = {
+		q,
+		attributesToSearchOn: ['name'],
+		// attributesToRetrieve: ['name', 'shortDescription', 'tg', 'id'],
+		hitsPerPage: pageSize ?? PAGE_SIZE,
+		page: page ?? PAGE,
+	};
+	return client.index('category').search<Category>('', queryParams);
 };
